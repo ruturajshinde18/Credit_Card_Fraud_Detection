@@ -1,0 +1,52 @@
+{% extends 'layouts/user.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="text-primary">{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row my-3">
+    <div class="col-md-12">
+        <h4>Your prediction data</h4>
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>DateTime</th>
+                        <th>CC</th>
+                        <th>Transaction</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Prediction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in predictions %}
+                    <tr>
+                        <td>{{ p.trans_date_trans_time }}</td>
+                        <td>{{ p.cc_num }}</td>
+                        <td>{{ p.trans_num }}</td>
+                        <td>{% widthratio p.amt 1 82 %}</td>
+                        <td>{{ p.date }}</td>
+                        <td>
+                            {% if p.is_fraud == 0 %}
+                                <span class="text-success">Not Fraud</span>
+                            {% else %}
+                                <span class="text-danger">Fraud</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-3">
+            <p class="alert alert-info">
+                <strong>0</strong> is for not fraud & <strong>1</strong> is for fraud.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

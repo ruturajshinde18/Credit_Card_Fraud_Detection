@@ -1,0 +1,42 @@
+{% extends 'layouts/admin.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="text-primary">{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row mt-5 mb-5">
+    <div class="col-md-6 text-white">
+        <h3>Machine Learning Models</h3>
+        <form action="{% url 'su-dataset' %}" class="my-3" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Build the model</button>
+            </div>
+        </form>
+        <div class="row">
+
+
+            <div class="col-md-12 mb-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4>Random Forest Classifier</h4>
+                        <table class="table">
+                            <tr>
+                                <td>Accuracy</td>
+                                <td>{{ rfc_acc }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <img src="{% static 'images/bg/03.jpg' %}" alt="image" class="img-fluid">
+    </div>
+</div>
+{% endblock %}

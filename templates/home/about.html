@@ -1,0 +1,30 @@
+{% extends 'layouts/user.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="text-primary">{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row mt-5 mb-5">
+    <div class="col-md-6">
+        <h4>Credit Card Fraud Detection with Python & Machine Learning</h4>
+        <p>
+            For any bank or financial organization, credit card fraud detection is of utmost importance. We have to spot
+            potential fraud so that consumers can not bill for goods that they haven’t purchased. The aim is, therefore,
+            to create a classifier that indicates whether a requested transaction is a fraud.
+        </p>
+        <h4>About Credit Card Fraud Detection</h4>
+        <p>
+            In this machine learning project, we solve the problem of detecting credit card fraud transactions using
+            machine numpy, scikit learn, and few other python libraries. We overcome the problem by creating a binary
+            classifier and experimenting with various machine learning techniques to see which fits better.
+        </p>
+    </div>
+
+    <div class="col-md-6">
+        <img src="{% static 'images/bg/02.jpg' %}" alt="image" class="img-fluid">
+    </div>
+</div>
+{% endblock %}

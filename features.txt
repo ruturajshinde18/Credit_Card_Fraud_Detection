@@ -1,0 +1,11 @@
+'cc_num',
+'amt',
+'gender',
+'zip',
+'lat',
+'long',
+'trans_num',
+'unix_time',
+'merch_lat',
+'merch_long',
+is_fraud

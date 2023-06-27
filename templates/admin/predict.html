@@ -1,0 +1,73 @@
+{% extends 'layouts/admin.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="text-primary">{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row my-3">
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-body">
+                <form action="{% url 'su-predict' %}" method="post" class="row">
+                    {% csrf_token %}
+                    <div class="form-group mb-3 col-md-2">
+                        <label for="cc_num">CC Number</label>
+                        <input type="number" step="0.0000000000001"   name="cc_num" id="cc_num" class="form-control" required placeholder="Credit card number" autocomplete="off">
+                    </div>
+                    <div class="form-group mb-3 col-md-2">
+                        <label for="amt">Amount</label>
+                        <input type="number" step="0.0000000000001"   name="amt" id="amt" class="form-control" required placeholder="Amount" autocomplete="off">
+                    </div>
+                    <div class="form-group mb-3 col-md-2">
+                        <label for="gender">Gender</label>
+                        <select name="gender" id="gender" class="form-control">
+                            <option value="">Select</option>
+                            <option value="0">Female</option>
+                            <option value="1">Male</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3 col-md-2">
+                        <label for="pincode">Pincode</label>
+                        <input type="number" step="0.0000000000001"   name="pincode" id="pincode" class="form-control" required placeholder="6-digits pincode" autocomplete="off">
+                    </div>
+                    <div class="form-group mb-3 col-md-4">
+                        <label for="date_time">DateTime</label>
+                        <input type="datetime-local" name="date_time" id="date_time" class="form-control" required placeholder="6-digits pincode" autocomplete="off">
+                    </div>
+                    <div class="form-group mb-3 col-md-2">
+                        <label for="lati">Latiude</label>
+                        <input type="number" step="0.0000000000001"   name="lati" id="lati" class="form-control" required placeholder="Latitude of transaction" autocomplete="off">
+                    </div>
+                    <div class="form-group mb-3 col-md-2">
+                        <label for="longi">Longitude</label>
+                        <input type="number" step="0.0000000000001"   name="longi" id="longi" class="form-control" required placeholder="Longitude of transaction" autocomplete="off">
+                    </div>
+                    <div class="form-group mb-3 col-md-2">
+                        <label for="m_lati">Merchant's Latiude</label>
+                        <input type="number" step="0.0000000000001"   name="m_lati" id="m_lati" class="form-control" required placeholder="Latitude of transaction" autocomplete="off">
+                    </div>
+                    <div class="form-group mb-3 col-md-2">
+                        <label for="m_longi">Merchant's Longitude</label>
+                        <input type="number" step="0.0000000000001"   name="m_longi" id="m_longi" class="form-control" required placeholder="Longitude of transaction" autocomplete="off">
+                    </div>
+                    <div class="form-group mb-3 col-md-3">
+                        <label for="tran_num">Transaction Number</label>
+                        <input type="text"   name="tran_num" id="tran_num" class="form-control" required placeholder="Transaction Number" autocomplete="off">
+                    </div>
+                    <div class="form-group mb-3 col-md-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="form-group mb-3 col-md-10">
+                        <p class="lead">
+                            {{ result }}
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
